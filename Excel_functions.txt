@@ -1,0 +1,594 @@
+--------------------Excel-----------------
+
+1) Excel Basics and Navigation
+
+Problem 1
+
+Type in the formula below, and notice how the formula follows the PEMDAS order of operations :Parentheses, Exponents, Multiplication and Division, and Addition and Subtraction
+=((5+(2*4)-3)/2)^2
+
+Click through the "Evaluate Formula" sequence in cell reference to see the feature in action
+
+Problem 2
+
+ 2 	 10 
+ 5 	
+
+"Highlight cell 2 and click ""Trace Dependents""
+Highlight cell 10 and click ""Trace Precedents" It will help you to understand cell.
+
+################################################################################
+
+
+2) Basic Functionality 
+
+** Paste Special 
+
+a.) How do you paste the values, formula, format of a data set?
+
+	 10 
+ 2 	 20 
+ 4 	 40 
+ 6 	 60 
+ 8 	 80 
+
+
+ 2 	
+ 4 	
+ 6 	
+ 8 	
+
+Copy value and choose cell where u want to copy "ctrl + Alt + V" pop occurs choose value.lly yoy could choose for Format and formula.
+
+with "ctrl + Alt + V" you can multiply, transpose.
+
+------------------------------------------------------------------
+
+**  Cell Locking 
+
+Problem 1
+
+Determine savings from February to June if the monthly growth rate is 5%, using the cell locking function.							
+
+	Savings A 	Savings B 
+January 	 $100 	 $350 
+February 	 $105 	
+March 		
+April 		
+May 		
+June 		
+
+Monthly Grow Rate 		5%
+
+solution : =100*(1+$5%) = $105 WILL DISPLAY DRAG BOTTOM UNDER WITH + SIGN. [ use $cell will lock row with $, cell eg. $A1, cell$ will lock column eg. A$1, TO LOCK BOTH $A$1.]
+
+-----------------------------------------------------------------------
+
+**  Named Ranges 
+
+If you get dataset give a name range by select dataset by ctrl + A then go to formulas name merge new give name and select data which you done, you give a name to the data set which will help while doing calculations. and give to columns even by hold ctrl +shift + right arrow and down arrow same go to name manager and give name..
+
+problem 1)
+
+a.) Determine the x using named ranges
+    
+Sum of x using named ranges = =sum(x)
+
+----------------------------------------------------------------------
+
+** Subtotal
+
+-- To perform a dynamic calculations on data set
+-- ignores any fields containing a subtotal function, without worring double counting.
+
+formula[ =subtotal(9sum,dataset)
+
+Problem 1.
+
+Your manager has given you a table of raw data to perform analysis on. You have been tasked to find the Sum, Average and Count of the Sales data provided below. Using the Sum, Average, count and subtotal formula's, fill in the empty fields below.		
+		
+Month 	Team 	Sales 
+Jan 	Team 3 	 $1,522.00 
+Jan 	Team 1 	 $1,589.00 
+Jan 	Team 2 	 $1,829.00 
+Jan 	Team 2 	 $1,797.00 
+Jan 	Team 1 	 $1,744.00 
+Feb 	Team 1 	 $1,868.00 
+Feb 	Team 4 	 $1,694.00 
+Mar 	Team 4 	 $1,626.00 
+Mar 	Team 1 	 $1,781.00 
+April 	Team 2 	 $1,279.00 
+April 	Team 3 	 $1,684.00 
+
+
+Using Sum, Average and Count, fill in the lines below:	
+	
+Sum 	  $18,413 = [=sum(sales)]
+Average   $1,674  = [=average(sales)]
+Count 	   11     = [=count(sales)]
+	
+Using Subtotal, fill in the lines below:	
+	
+Sum 	 $18,413 = [=subtotal(sum,sales)]
+Average  $1,674  = [=subtotal(average,sales)]
+Count 	 11      = [=subtotal(count,sales)]
+
+Problem 2.
+
+Month 	Team 	Sales 1
+Jan 	Team 3 	 $1,522.00 
+Jan 	Team 1 	 $1,589.00 
+Jan 	Team 2 	 $1,829.00 
+Jan 	Team 2 	 $1,797.00 
+Jan 	Team 1 	 $1,744.00 
+sum		 $8,481.00 
+Feb 	Team 1 	 $1,868.00 
+Feb 	Team 4 	 $1,694.00 
+sum		 $3,562.00 
+Mar 	Team 4 	 $1,626.00 
+Mar 	Team 1 	 $1,781.00 
+sum		 $3,407.00 
+April 	Team 2 	 $1,279.00 
+April 	Team 3 	 $1,684.00 
+sum		 $2,963.00 
+
+Using SUM and SUBTOTAL, fill in the lines below:	
+	
+Total Sales (using SUM) 	 $36,826 =[=sum(sales1)] = with sum() it double counts.
+Total Sales (using SUBTOTAL) 	 $18,413 =[=subtotal(sum(sales1)]= with subtotal() it ignores double count.
+
+##############################################################
+
+3) VLOOKUP, HLOOKUP, NESTING.
+
+**Vlookup ( for vertical)
+== it looks up a value in data table and pull a specific attribute corresponding to that value, to another table.
+
+formula= [=vlookup(lookup_value,table_arry,col_index_num,[range_lookup])]
+
+lookup_value = what your looking for
+table_arry =where your trying to lookup the information.
+col_index_num = which column no. you want to bring to dataset.
+range_lookup = True or false = true means appr. match and false for exact match.
+
+* if takes 1st match if it doesnt shows value then it comes with error then choose/select table & lock it with f4 in table array.
+
+problem 1.
+
+You were given the small subset of data from your client: 		
+		
+23265	South Africa	Uriel Benton
+23315	Burkina Faso	Anika Tillman
+23326	Slovenia	Katelyn Joseph
+23367	Saudi Arabia	Roary Dixon
+
+Your team has been given a list of transactions that require additional follow up. 		
+Identify  the associated distributors below using vlookup: 		
+		
+Distributor ID   	Name	
+23265	          Uriel Benton	==VLOOKUP(23265,$B$11:$D$14(above dataset),3,FALSE)
+23315	          Anika Tillman == drag with "+" sign.	
+
+----------------------------------------------------------------
+
+
+** Hlookup (for horizontal )
+
+[=Hlookup(lookup table ,table arry, row_index_num,[range_lookup])]
+
+problem 1
+
+Distributor ID	  Distributor Name	Country	   Product Code	   Product 	               Sales Channel	Revenue
+23278	     Aphrodite Brennan	        Malawi	    SUPA105	   Super Soft Bulk - 2 Litres	Direct	        $2,857 
+23332	       Yael Carter	       Malaysia	    PURA250	   Pure Soft Detergent - 250ml	Direct	        $914 
+
+Required Information 	Malawi 	                                 Malaysia 
+Distributor ID 	        23278 =HLOOKUP(B84,$B$78:$H$80,2,FALSE)	 23332 =HLOOKUP(B84,$B$78:$H$80,3,FALSE)
+Revenue 	       2856.5 = drag	                         913.5 = drag.
+
+----------------------------------------------------------------
+
+** NESTING: IFERROR () EXCEL WILL TELL YOU WHICH VALUE YOU WANT TO GIVE IF ERROR OCCURS.
+
+[=iferror(vlookup(lookup_value,table_arry,col_index_no,rang_name),"data not available")
+
+Nest V-lookup with Iferror and pull the Name associated with the Distributor ID. 			
+
+data of name and revenue is pulled from dataset.			
+			
+Distributor ID	 Country	Name	               Revenue
+23265	    South Africa	Uriel Benton	        $139.86 
+23315	    Burkina Faso	Anika Tillman	        $490.50 
+30000	    DATA NOT AVAILABLE	DATA NOT AVAILABLE	 ZERO 
+40000	    DATA NOT AVAILABLE	DATA NOT AVAILABLE	 ZERO 
+23367	    Saudi Arabia	Roary Dixon	         $45.00 
+23326	    Slovenia            Katelyn Joseph	         $567.00 
+35000	    DATA NOT AVAILABLE	DATA NOT AVAILABLE	  ZERO 
+		                  Total Revenue 	 $1,242.36 
+
+name =[=IFERROR(VLOOKUP(B94,SALES_DATA,2,FALSE),"DATA NOT AVAILABLE")]
+revenue=[==IFERROR(VLOOKUP(B94,SALES_DATA,10,FALSE),"ZERO")]
+
+#########################################################################
+
+4) Data Cleansing : values
+
+** Clean()
+
+Your manager has given you a table of raw data to perform analysis on. The data has been pulled from multiple sources and needs to be standardized prior to analysis. 		
+		
+Product
+PROGRAF
+PARIET
+CONCERTA
+LEUSTATIN
+VELCADE
+LEUSTATIN
+VELCADE
+
+clean() removes any of the non-printable symbols when imported from other sources.
+
+PROGRAF   = clean( reference cell)
+PARIET    = drag down.
+CONCERTA
+LEUSTATIN
+VELCADE
+LEUSTATIN
+VELCADE
+
+-------------------------------------------------------------------------
+
+**Delimiter
+
+Your manager has given you raw contact info that needs to be separated by First Name, Last Name, Email Address and Phone Number. Using the text to columns function, separate this data in the table below.			
+			
+Staffing Data	
+Eric_Johnson_johnson.eric@Company.com_Manager	
+John_Smith_john.smith@Company.com_Director	
+Beth_Summers_beth.summers@Company.com_associate	
+Miles_Peterson_Miles.peterson@Company.com_Partner	
+Jenna_Stone_Jenne.Stone@Company.com_Manager	
+Quinn_Cook_Quinn.Cook@Company.com_Manager	
+
+First select data = go to data= select text to columns = select delimited = next = it will delimiters = select tab & other if so in this eg. _.here _ is delimiter = next = add destination = finish.
+
+First Name	Last Name	Email Address	            Employee Level
+Eric	        Johnson	        johnson.eric@company.com	Manager
+John	        Smith	        john.smith@company.com	        Director
+Beth	        Summers 	beth.summers@company.com	associate
+Miles	        Peterson	Miles.peterson@company.com	Partner
+Jenna	        Stone	        Jenne.Stone@company.com  	Manager
+Quinn	        Cook	        Quinn.Cook@company.com	        Manager
+
+--------------------------------------------------------------------------
+
+**Trim()
+Trim function will strip extra spaces from text, leaving only single spaces b/w words ands and no space characters at the start or end of text.
+
+eg.
+
+Your manager has given you a table of raw data to perform analysis on. The data has been pulled from multiple sources and needs to be standardized prior to analysis. 		
+		
+Product Detail
+PROGRAF 5MG 50CAPSULAS PROIBID
+PARIET     20 MG 28 CP OR
+CONCERTA 54MG FR         30CP OR
+LEUSTATIN        INJ CT C/ 1 FR          AMP
+VELCADE 3,5 MG OR
+LEUSTATIN INJ CT C/ 1       FR AMP
+    VELCADE 3,5 MG OR
+
+Trim
+PROGRAF 5MG 50CAPSULAS PROIBID  = [=trim(cell reference)]
+PARIET 20 MG 28 CP OR
+CONCERTA 54MG FR 30CP OR
+LEUSTATIN INJ CT C/ 1 FR AMP
+VELCADE 3,5 MG OR
+LEUSTATIN INJ CT C/ 1 FR AMP
+VELCADE 3,5 MG OR
+
+-------------------------------------------------------------------------
+
+**Substitute
+
+we are going to take the trim() one step further by using the substitute() together with it.
+
+substitute() = replaces existing text with new text in a text string.
+
+problem
+
+Your manager has given you a table of raw data to perform analysis on. The data has been pulled from multiple sources and needs to be standardized prior to analysis. 		
+		
+Product Detail
+PROGRAF 5MG 50CAPSULAS PROIBID
+PARIET     20 MG 28 CP OR
+CONCERTA 54MG FR         30CP OR
+LEUSTATIN        INJ CT C/ 1 FR          AMP
+VELCADE 3,5 MG OR
+LEUSTATIN INJ CT C/ 1       FR AMP
+    VELCADE 3,5 MG OR
+
+using trim(substitute(Cell refrence,",","."))
+
+PROGRAF 5MG 50CAPSULAS PROIBID
+PARIET 20 MG 28 CP OR
+CONCERTA 54MG FR 30CP OR
+LEUSTATIN INJ CT C/ 1 FR AMP
+VELCADE 3.5 MG OR
+LEUSTATIN INJ CT C/ 1 FR AMP
+VELCADE 3.5 MG OR
+
+--------------------------------------
+
+= substitute ( text, old text, new text)
+
+Problem
+
+You have been tasked to create a table for 2015 and 2016 cost data. You have already created the same list for sales data in the previous two years. Using the data on the left and the substitute formula, create a new list in the right hand column.	
+	
+Substitute	
+	
+Sales Data 	
+Quarter 1, 2013 	
+Quarter 2, 2013 	
+Quarter 3, 2013 	
+Quarter 4, 2013 	
+Quarter 1, 2014 	
+Quarter 2, 2014 	
+Quarter 3, 2014 	
+Quarter 4, 2014 	
+	
+
+Quarter 1, 2015 = [ = substitute(cell refrence ,"2013","2015")]
+Quarter 2, 2015 = drag down
+Quarter 3, 2015 
+Quarter 4, 2015 
+Quarter 1, 2016 = [ =substitute (cell refrence , "2014","2016")]
+Quarter 2, 2016 = drag
+Quarter 3, 2016 
+Quarter 4, 2016 
+
+-------------------------------------------------------------------------
+
+**VALUE()
+
+WHEN we pull data from other sources and then combining the data in an excel sheet. we see green triangle at the top chart.
+
+to ways to convert 
+1) using = value 
+2) using TEXT TO COLUMNS
+
+Reported Quantity
+2
+3
+5
+3
+10
+5
+10
+
+Using =Value 		Using Text To Columns
+		
+2 = VALUE( REFERENCE CELL)       2  USING TEXT TO COLUMN METHOD = SELECT = GENERAL TEXT DATE ETC.
+3		                3
+5		                5
+3		                3
+10	                 	10
+5	                 	5
+10	                  	10
+38 	                 	 38 
+
+-----------------------------------------------------
+
+**Duplicates
+ 
+Data cleaning is de-duplicating.
+
+this function is different than the psat functions we coverered become it is not a typed formula that can reference our raw data.
+
+=keeping raw data separated by creating duplicate entry.
+
+1st copy an d paste the data from raw data let data(create raw) & right right side (edit made)
+now select right table = go to data = remove duplicates entry.
+
+
+##################################################################
+
+5) Data Cleaning - Text Functions.
+
+manipulate data to give us better analysis of the underlying data,you get a data from client with structured o unstructured form.
+
+=to analysis effectively the text form data.
+* How to cleanse data using text function.
+*How to manipulate and alter text within a data set, using a no. of different text functions.
+
+Text() allows:
+1) Modify
+2) Manipulate
+3) Search Text data.
+
+
+** Right and Left function.
+
+Right() allows ; 
+1) Extract a substring from a text string.
+2) Starting at the end of the text string.
+3) Selecting the defined no. of characters.
+end string- right hand side/rihtmost character.
+
+Left():
+works similar to the right function, except that instead of selecting characters starting at the end of the word, this function starts at beginning.
+
+=rIGHT(TEXT,[NUM_CHAR])
+=LEFT( tEXT,[NUM_CHAR])
+
+
+You've been given a list of product IDs. Your client would like you to extract the right section of the IDs.				
+The structure of the ID's is AA-BBBB. Use the 'Right' formula to extract the 'BBBB' sections. 				
+
+Product IDs 
+AJ-0269 
+JN-2525 
+VR-5512 
+NR-7470 
+RC-9018 
+MJ-9506 
+AO-2706 
+NB-5160 
+
+extract last 4 digit.
+
+Product IDs 	Product ID Extracts 
+AJ-0269 	0269 ==RIGHT(cell refrence,4)
+JN-2525 	2525
+VR-5512 	5512
+NR-7470 	7470
+RC-9018 	9018
+MJ-9506 	9506
+AO-2706 	2706
+NB-5160 	5160
+
+---------------------------------------------------------------
+
+** Find, Len, and Mid 
+
+FIND THE POSITION OF (-)  [=FIND("-",REFERENCE CELL)]
+TO FIND THE LENGTH OF THE PRODUCT ID = [=len(cell)]
+
+Problem
+
+Now there are other ID's that have variable lengths. You did so well with the first set of ID's your client wants you to do more.						
+The new set of ID's has a variable structure but the sections of the ID are separated by a '-'. Use the find function to get the 'AA x' sections of the product IDs.						
+
+Product IDs 	Find('-') 	              Product ID Extract 
+VTYQ-2216 	5 = [find("-",cell)]	              VTYQ [=left(find -1)]
+YPX-3820 	4	                              YPX
+X-9429 	        2	                               X
+ZT-9748 	3	                               ZT
+LTXT-3616 	5	                              LTXT
+KWU-9965 	4	                              KWU
+VY-2057 	3	                               VY
+NZX-0610 	4	                              NZX
+
+------------------------------------------------------------------
+
+** Proper and Concatenate 
+
+Test function to format test string
+ 3 main function to do Proper(), Upper() and lower ()
+
+1)Proper() : first letter is capitalized and all other character are in lower case.
+2)Upper() : All characters are in uppercase.
+3)Lower() : All character are in lowercase.
+
+another useful tet function is concatenate().
+
+if hello and world ae there in 2 different cell and u want to merge in one cell then we use concatenate(). which would return text string " hello world".
+
+Problem
+
+Now there are list of clients. The database however stored them all in uppercase. Your clients wants you fix the formatting before sending bills to them.						
+Reformat the names into the proper case. Also, concatenate the names into their full names. 						
+
+
+First Name 	Last Name 	First Name 	Last Name 	Full Name 
+ERIC 	         JOHNSON 	Eric	         Johnson	Eric, Johnson
+JOHN 	         SMITH 	        John	         Smith	        John, Smith
+BETH 	         SUMMERS 	Beth	         Summers	Beth, Summers
+MILES 	         PETERSON 	Miles	         Peterson	Miles, Peterson
+JENNA 	         STONE 	        Jenna	         Stone	        Jenna, Stone
+QUINN 	         COOK    	Quinn	         Cook    	Quinn, Cook
+                                =PROPER(cell)    =PROPER(cell)  =CONCATENATE(Proper cell 1st name,", ",p(last name)) 
+
+##################################################################################
+
+6) LOgical Function
+
+from data set create a logical calculation.
+
+1) countifs() : helps to count no. of occurance based on specific criteria.
+  [=countifs(sum_range,criteria_range 1, criteria 1,[criteria_range 2, criteria 2]......)
+
+problem 1
+
+Find the number of sales of each of the following products	
+
+ Product 
+Pure Soft Detergent - 100ml
+Pure Soft Detergent - 200ml
+Pure Soft Detergent - 250ml
+Pure Soft Detergent - 500ml
+Detafast Stain Remover - 100ml
+Detafast Stain Remover - 200ml
+Detafast Stain Remover - 800ml
+Super Soft - 250ml
+Super Soft - 500ml
+Super Soft - 1 Litre
+Super Soft Bulk - 2 Litres 
+
+=COUNTIFS(table_data[product(name ranged)],select product refrence cell)
+
+will give outputs
+
+" # of Distributors (each country has a single distributor)
+Using COUNTIFS "
+ 11 
+ 11 
+ 11 
+ 6 
+ 8 
+ 8 
+ 12 
+ 7 
+ 11 
+ 11 
+ 11 
+for each product.
+
+
+Problem 2.
+
+Count the number of sales for which revenue meets the following criteria:		
+
+formula = [=countifs(table_data{revenue],">1000"]
+
+	                  Greater than $1000 	 Less than $1000 	 Equals $1000 	 Does not Equal $1000 
+ Count (Using COUNTIFS) 	 27 	             80 	             -   	     107 
+
+Problem 3.
+
+How many sales of Super Soft Bulk - 2 Litres were made through the following sales channels?		
+
+Product	       Super Soft Bulk - 2 Litres 
+	
+ Sales Channel 	 # of Sales 
+Online	          =countifs(table_data[product],cell reference(super soft bulk & lock it),table_data[ sales channel],{@ sales channel reference cell)
+Direct	
+Retail	
+
+-----------------------------------------------------------------------------------
+
+** sumifs() = helps to count sum of occurance based on specific criteria
+
+[=sumifs(sum_range,criteria_range 1,criteria 1,[criteria_range,criteria2],....)
+
+
+  
+ Product 	          "Total Revenue
+(Using SUMIF)"	"Total Revenue
+(Using SUMIFS)"
+Pure Soft Detergent - 100ml	 $3,024.00 	          $3,024.00 
+Pure Soft Detergent - 200ml	 $4,971.54 	          $4,971.54 
+Pure Soft Detergent - 250ml	 $6,106.50 	          $6,106.50 
+Pure Soft Detergent - 500ml	 $2,645.50 	          $2,645.50 
+Detafast Stain Remover - 100ml	 $4,704.00 	          $4,704.00 
+Detafast Stain Remover - 200ml	 $4,849.00 	          $4,849.00 
+Detafast Stain Remover - 800ml	 $15,885.00               $15,885.00 
+Super Soft - 250ml	         $3,042.00 	          $3,042.00 
+Super Soft - 500ml	         $7,066.89 	          $7,066.89 
+Super Soft - 1 Litre	         $9,310.68 	          $9,310.68 
+Super Soft Bulk - 2 Litres 	 $20,938.00 	          $20,938.00 
+
+=sumifs(table_data[revenue],table_data[product],[@product})
+
+-----------------------------------------------------------------
